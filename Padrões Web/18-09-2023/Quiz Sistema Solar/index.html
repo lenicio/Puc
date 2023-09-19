@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz sobre o Sistema Solar</title>
+</head>
+<body>
+<header>
+  <h1>Quiz sobre o Sistema Solar</h1>
+</header>
+<main>
+
+  <div class="q1">
+    <h2>Pergunta 1:</h2>
+    <p>Quantos planetas existem no Sistema Solar?</p>
+
+    <form action="" method="get">
+      <label for="q1">
+        <input type="radio" id="q1" name="q1"> a) 7
+      </label>
+
+      <label for="q2">
+        <input type="radio" id="q2" name="q2"> b) 8
+      </label>
+
+      <label for="q3">
+        <input type="radio" id="q3" name="q3"> c) 9
+      </label>
+
+      <input type="submit" name="Enviar">
+    </form>
+  </div>
+
+  <div class="q2">
+    <h2>Pergunta 2:</h2>
+    <p>Quais destes são planetas gasosos? Selecione todas as opções corretas.</p>
+
+    <form action="" method="get">
+      <label for="q4">
+        <input type="checkbox" id="q4" name="q4"> a) Marte
+      </label>
+
+      <label for="q5">
+        <input type="checkbox" id="q5" name="q5"> b) Júpiter
+      </label>
+
+      <label for="q6">
+        <input type="checkbox" id="q6" name="q6"> c) Vênus
+      </label>
+
+      <input type="submit" name="Enviar">
+    </form>
+  </div>
+
+  <div class="q3">
+    <h2>Pergunta 3:</h2>
+    <p>Qual é a maior lua de Saturno</p>
+
+    <form action="" method="get">
+      <label for="q7">
+        <select id="q7">
+          <option value="q7">Europa</option>
+          <option value="q8">Titã</option>
+          <option value="q9">Lua de Ganimedes</option>
+        </select>
+      </label>
+      <input type="submit" name="Enviar">
+    </form>
+  </div>
+
+  <div class="q4">
+    <h2>Pergunta 4:</h2>
+    <p>Em que ano a sonda de Woyager 2 foi lançada para explorar os planetas no Sistema Solar?</p>
+
+
+    <label for="q10">
+      <input type="range" id="q10" min="1960" max="1980" class="slider">
+      <span id="feedback_range"></span>
+    </label>
+    <input type="submit" name="Enviar">
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2023 Sistema Solar</p>
+</footer>
+
+</body>
+</html>
+
+<script>
+    let slider = document.getElementById("q10");
+    let output = document.getElementById("feedback_range");
+    output.innerHTML = slider.value;
+
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+</script>
