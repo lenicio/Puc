@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Open+Sans:wght@400;700&family=Roboto&display=swap');
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #034f84;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-family: "roboto", sans-serif;
+  font-size: 34px;
+  transition: background-color 5s ease;
+}
+
+header:hover {
+  background-color: #040226;
+}
+
+main {
+  padding: 3rem;
+}
+
+section {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: #04022e;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #070445
+}
+
+form {
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #070445;
+  font-size: 18px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: "Nunito", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+select:hover {
+  border-color: #007bff;
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+  background-color: #034f84;
+  color: #e0defa;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #040226;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+output {
+  display: block;
+  margin-top: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+footer {
+  background-color: #034f84;
+
+  text-align: center;
+  padding: 10px 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+}
+
+footer p {
+  color: #fff;
+}
