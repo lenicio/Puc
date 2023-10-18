@@ -1,0 +1,102 @@
+  <!DOCTYPE html>
+  <html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lista de Tarefas</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e56fc1c5ce.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+  <div class="container">
+    <div id="novatarefa">
+      <input type="text" placeholder="Insira uma tarefa...">
+      <button id="adicionar">Adicionar</button>
+    </div>
+
+    <div id="tarefas"></div>
+  </div>
+
+
+  <!--Script-->
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          // Carrega tarefas do localStorage quando a página é carregada
+          loadTasksFromLocalStorage();
+
+          document.querySelector('#adicionar').onclick = function () {
+              let taskValue = document.querySelector('#novatarefa input').value;
+              if (taskValue.length === 0) {
+                  alert("Por favor, insira uma tarefa.");
+              } else {
+                  addTaskToDOM(taskValue);
+                  addTaskToLocalStorage(taskValue);
+                  document.querySelector('#novatarefa input').value = "";  // Limpa o campo de entrada após adicionar a tarefa
+              }
+          }
+      });
+
+      // Captura o evento de clique da classe .tarefa e adiciona a classe .concluida. Caso a classe .concluida já esteja presente, remove-a.
+      document.addEventListener('click', function (event) {
+          if (event.target.classList.contains('tarefa')) {
+              if (event.target.classList.contains('concluida')) {
+                  event.target.classList.remove('concluida');
+              } else {
+                  event.target.classList.add('concluida');
+              }
+          }
+      });
+
+      function attachDeleteEventToTask(taskElement) {
+          taskElement.querySelector(".deletar").onclick = function () {
+              let taskValue = this.parentNode.querySelector('span').innerText;
+              removeTaskFromLocalStorage(taskValue);
+              this.parentNode.remove();
+          }
+      }
+
+      function addTaskToDOM(taskValue) {
+          let taskElement = document.createElement('div');
+          taskElement.className = "tarefa";
+          taskElement.innerHTML = `
+              <span>
+                  ${taskValue}
+              </span>
+              <button class="deletar">
+                <i class="fa fa-trash-alt"></i>
+              </button>`;
+
+          attachDeleteEventToTask(taskElement);
+          document.querySelector('#tarefas').appendChild(taskElement);
+      }
+
+      function addTaskToLocalStorage(taskValue) {
+          let tasks = JSON.parse(localStorage.getItem('tarefas')) || [];
+          tasks.push(taskValue);
+          localStorage.setItem('tarefas', JSON.stringify(tasks));
+      }
+
+      function removeTaskFromLocalStorage(taskValue) {
+          let tasks = JSON.parse(localStorage.getItem('tarefas')) || [];
+          let index = tasks.indexOf(taskValue);
+          if (index > -1) {
+              tasks.splice(index, 1);
+          }
+          localStorage.setItem('tarefas', JSON.stringify(tasks));
+      }
+
+      function loadTasksFromLocalStorage() {
+          let tasks = JSON.parse(localStorage.getItem('tarefas')) || [];
+          tasks.forEach(taskValue => {
+              addTaskToDOM(taskValue);
+          });
+      }
+  </script>
+  </body>
+
+  </html>
